@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>侧边栏广告</title>
+    <style type="text/css">
+        #d1{
+            width:100px;
+            height:100px;
+            position:absolute;
+            top:50%;
+            right:0;
+            border:1px solid #101010;
+        }
+    </style>
+    <script type="text/javascript">
+       window.onresize= window.onload=window.onscroll=function(){
+            var oDiv=document.getElementById('d1');
+           var offsetTop=document.documentElement.scrollTop||document.body.scrollTop;
+           var oHeight=document.documentElement.clientHeight||document.body.clientHeight;
+           oDiv.style.top=offsetTop+(oHeight-oDiv.offsetHeight)/2+'px';
+        }
+    </script>
+</head>
+<body style="height:2000px;">
+<div id='d1'>欢迎来到小胖子餐馆，我们将竭诚为您提供餐饮服务！！</div>
+</body>
+</html>

@@ -1,0 +1,159 @@
+body,ul,li,a,div,span,img,p,h2{
+    margin:0;
+    padding:0;
+}
+ul,li{
+    list-style: none;
+}
+img{
+    border:none;
+}
+body{
+    margin-top: 50px;
+    font-size:12px;
+    background:#f0fcff;
+}
+#tab{
+    width:490px;
+    margin:0 auto;
+    position:relative;
+    background:url(../images/tab_bg.gif) repeat-y -490px 0;
+}
+#tab .adorn1{
+    position:absolute;
+    left:0;
+    top:0;
+    width:490px;
+    height:6px;
+    overflow:hidden;
+    background:url(../images/tab_bg.gif) no-repeat;
+    z-index: 1;
+
+}
+#tab .adorn2{
+    width:490px;
+    height:6px;
+    overflow:hidden;
+    background:url(../images/tab_bg.gif) no-repeat;
+    z-index: 1;
+}
+#tab .nav{
+    position:relative;
+    z-index: 2;
+}
+#tab .nav ul{
+    width:484px;
+    height:44px;
+    border-left:1px solid #d4d4d4;
+    background:url(../images/nav_bg.gif) repeat-x 0 -44px;
+}
+#tab .nav li{
+    float:left;
+    height:44px;
+    line-height: 44px;
+    font-family: arial;
+    border-right: 1px solid #d4d4d4;
+
+}
+#tab .nav li a{
+    float:left;
+    height:44px;
+    text-decoration:none;
+    color:#999;
+    padding:0 20px;
+
+}
+#tab .nav li a:hover{
+    background:url(../images/nav_bg.gif) repeat-x 0 0;
+}
+#tab .nav .active{
+    background:url(../images/nav_bg.gif) repeat-x 0 -88px;
+
+}
+#tab .nav .active a{
+    background:url(../images/ico.gif)no-repeat center bottom;
+    color:#333;
+    font-weight:bold;
+
+}
+#tab .nav .active a:hover{
+    background:url(../images/ico.gif) no-repeat center bottom;
+}
+#tab .more{
+    font-family:"ËÎÌו";
+    position:absolute;
+    top:16px;
+    right:20px;
+    color:#999;
+    text-decoration:none;
+}
+#tab .more:hover{
+    text-decoration:underline;
+    font-weight:bold;
+    right:18px;
+}
+#tab .content{
+    position:relative;
+    z-index:2;
+    width:484px;
+    overflow:hidden;
+    margin-left:1px;
+}
+#tab .box{
+    width:444px;
+    padding:20px;
+    overflow:hidden;
+    display:none;
+
+}
+#tab .pic{
+    padding:7px 0 0 7px;
+    width:189px;
+    height:115px;
+    background:url(../images/pic_bg.jpg) no-repeat ;
+    float:left;
+}
+#tab .pic_list{
+    folat:right;
+    width:232px;
+    padding-left:16px;
+   display:inline-block;
+}
+#tab .pic_list li{
+    width:232px;
+    float:left;
+    font-family: arial;
+    line-height:18px;
+    margin-bottom:4px;
+}
+#tab .pic_list h2{
+    width:232px;
+    font-size:12px;
+    height:18px;
+    background:url(../images/line.gif) repeat-x 0 8px;
+}
+#tab .pic_list h2 a{
+    height:18px;
+    text-decoration: none;
+    color:#333;
+    font-weight:bold;
+    background:#fff;
+    padding-right: 5px;
+    float:left;
+}
+#tab .pic_list h2 a:hover{
+    text-decoration:underline;
+    color:#D31A05;
+
+}
+#tab .pic_list h2 span{
+    height:18px;
+    color:#999;
+    float:right;
+    background:#fff;
+    padding-left:5px;
+}
+#tab .pic_list p{
+    color:#999;
+    word-spacing:10px;
+}

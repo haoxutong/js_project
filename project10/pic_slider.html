@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>图片上下滑动-妙味课堂</title>
+    <style type="text/css">
+        body,ul,li,a,img{
+            margin:0;
+            padding:0;
+        }
+        ul,li{
+            list-style:none;
+        }
+        img{
+            border:none;
+        }
+        body{
+            background:#eee;
+        }
+        .slider_moudle{
+            width:120px;
+            height:400px;
+            margin:0 auto;
+            background:#fff;
+            border:1px solid #ccc;
+            position: relative;
+            top:50px;
+        }
+        .slider_moudle .up{
+            width:27px;
+            height:27px;
+            background:url(images/up.gif) no-repeat;
+            position:absolute;
+            top:4px;
+            left:50%;
+            margin-left: -16px;;cursor:pointer;
+            filter:alpha(opacity=60);
+            opacity: 0.6;
+            cursor: pointer;
+
+        }
+        .slider_moudle .down{
+            width:27px;
+            height:27px;
+            background: url(images/down.gif) no-repeat;
+            position: absolute;
+            bottom:4px;
+            left:50%;
+            margin-left:-16px;
+            cursor: pointer;
+            filter:alpha(opacity=60);
+            opacity: 0.6;
+        }
+        .slider_moudle .wrap{
+            width:120px;
+            height:330px;
+            position: absolute;
+            top:35px;
+            left:0;
+            overflow: hidden;
+
+        }
+        .slider_moudle ul{
+            width:120px;
+            position: absolute;
+            top:0;
+            left:0;
+        }
+        .slider_moudle li{
+            width:120px;
+            height:110px;
+            float:left;
+        }
+        .slider_moudle a{
+            display:block;
+            width:100px;
+            height:100px;
+            border:1px solid red;
+            margin:0 auto;
+            position: relative;
+            top:4px;
+        }
+        .slider_moudle a:hover{
+            border:1px solid #333;
+        }
+        .slider_moudle a:active{
+            border:10px solid #000;
+        }
+        .slider_moudle a img{
+            width:100px;
+            height:100px;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload=function(){
+            var oDiv=document.getElementById('miaovSlide');
+            var oWrap=oDiv.getElementsByClassName('wrap')[0];
+            var oUl=oWrap.getElementsByTagName('ul')[0];
+            var aLi=oUl.getElementsByTagName('li');
+            var oBtn_up=oDiv.getElementsByClassName('up')[0];
+            var oBtn_down=oDiv.getElementsByClassName('down')[0];
+            var timer=null;
+            var iSpeed=0;
+            oUl.innerHTML+=oUl.innerHTML;
+            oBtn_up.onmousedown=function(){
+                timer=setInterval(doMove,30);
+                iSpeed=-5;
+            };
+            oBtn_up.onmouseup=function(){
+                clearInterval(timer);
+            };
+            oBtn_down.onmousedown=function(){
+
+                timer=setInterval(doMove,30);
+                iSpeed=5;
+            };
+            oBtn_down.onmouseup=function(){
+                clearInterval(timer);
+            };
+            function doMove(){
+                oUl.style.top=oUl.offsetTop+iSpeed+'px';
+                if(oUl.offsetTop<-oUl.offsetHeight/2){
+                    oUl.style.top=parseInt(oUl.style.top)+oUl.offsetHeight/2+'px';
+                }else if(oUl.offsetTop>0){
+                    oUl.style.top=parseInt(oUl.style.top)-oUl.offsetHeight/2+'px';
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div class="slider_moudle" id="miaovSlide">
+    <div class="up"></div>
+    <div class="wrap">
+        <ul>
+            <li><a href="#"><img src="images/1.jpg" alt="照片1"/></a></li>
+            <li><a href="#"><img src="images/2.jpg" alt="照片2"/></a></li>
+            <li><a href="#"><img src="images/3.jpg" alt="照片3"/></a></li>
+            <li><a href="#"><img src="images/4.jpg" alt="照片4"/></a></li>
+            <li><a href="#"><img src="images/5.jpg" alt="照片5"/></a></li>
+        </ul>
+    </div>
+    <div class="down"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+body,div,ul,li,h2,a{
+    margin:0;
+    padding:0;
+}
+ul,li{
+    list-style: none;
+
+}
+body{
+    background:#f6f9fc;
+}
+audio{
+    width:350px;
+    position: absolute;
+    right:10px;
+    top:5px;
+}
+.down_list{
+    width:500px;
+    overflow: hidden;
+    border:1px solid #dee3e6;
+    background:url(../images/down_list_h2_bg.gif) repeat-x;
+    margin:50px auto 0;
+}
+.down_list h2{
+    height:25px;
+    line-height: 25px;
+    border:1px solid #dee3e6;
+    border-top:1px solid #f3f5f7;
+    padding-left:10px;
+    font-size:14px;
+    font-weight: normal;;
+    color:#57646e;
+    cursor:pointer;
+}
+.down{
+    background: url("../images/down.gif") no-repeat 480px center;
+}
+.up{
+    background: url("../images/up.gif") no-repeat 480px center;
+}
+.down_list ul{
+    width:500px;
+    overflow:hidden;
+    background:#e9edf2;
+    font-size:12px;
+}
+.down_list li{
+    width:500px;
+    float:left;
+
+}
+.down_list a{
+    display:block;
+    position: relative;
+    padding-left:10px;
+    color:#6b7980;
+    text-decoration: none;
+    height:45px;
+    line-height: 45px;
+}
+.down_list a:hover{
+    background:#fff;
+    text-decoration: underline;
+}

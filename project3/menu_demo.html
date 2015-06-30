@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>下拉列表js示例</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript">
+        window.onload=function(){
+            var oDiv=document.getElementById('drop');
+            var oh2=oDiv.getElementsByTagName('h2')[0];
+            var ul_item=oDiv.getElementsByTagName('ul')[0];
+            oh2.onclick=function(){
+               if(ul_item.style.display=='none'){
+                   ul_item.style.display='block';
+                   oh2.className='up';
+               }else{
+                   ul_item.style.display='none';
+                   oh2.className='down';
+               }
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="drop" class="down_list">
+    <h2 class="up">播放列表</h2>
+    <ul>
+        <li><a href="#">玩爱之徒-蔡依林<audio src="source/1.mp3"  controls="controls">你的浏览器不支持audio元素</audio></a></li>
+        <li><a href="#">那些年-王菲<audio src="source/2.mp3"  controls="controls">你的浏览器不支持audio元素</audio></a></li>
+        <li><a href="#">猜不透-叮当<audio src="source/3.mp3"  controls="controls">你的浏览器不支持audio元素</audio></a></li>
+        <li><a href="#">自导自演-周杰伦<audio src="source/4.mp3"  controls="controls">你的浏览器不支持audio元素</audio></a></li>
+        <li><a href="#">浪漫窝-玄子<audio src="source/5.mp3"  controls="controls">你的浏览器不支持audio元素</audio></a></li>
+        <li><a href="#">流年-王菲<audio src="source/6.mp3"  controls="controls">你的浏览器不支持audio元素</audio></a></li>
+    </ul>
+</div>
+</body>
+</html>
