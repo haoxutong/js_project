@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>布局转换--浮动布局转换为定位布局</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        #ul1{
+            width:366px;
+            margin:50px auto;
+            position: relative;
+        }
+        #ul1 li{
+            list-style:none;
+            width:100px;
+            height:100px;
+            background:#CCC;
+            border:1px solid black;
+            float:left;
+            margin:10px;
+            z-index:1;
+        }
+    </style>
+    <script type="text/javascript" src="js/move2.js"></script>
+    <script type="text/javascript">
+        window.onload=function(){
+            var iMinIndex=2;
+            var oUl=document.getElementById('ul1');
+            var aLis=oUl.getElementsByTagName('li');
+            for(var i=0;i<aLis.length;i++){
+                //aLis[i].innerHTML='left:'+aLis[i].offsetLeft+',top:'+aLis[i].offsetTop;
+                aLis[i].style.left= aLis[i].offsetLeft+'px';
+                aLis[i].style.top= aLis[i].offsetTop+'px';
+            }
+            for(i=0;i<aLis.length;i++){
+                aLis[i].style.position='absolute';
+                //注意在offsetLeft时已经考虑到margin啦，这时候left是20px，所以需要设置margin=0；
+                aLis[i].style.margin=0;
+            }
+            for(i=0;i<aLis.length;i++){
+                aLis[i].onmouseover=function(){
+                    this.style.zIndex=iMinIndex++;
+                    startMove(this,{width:200,height:200,marginLeft:-50,marginTop:-50});
+                };
+                aLis[i].onmouseout=function(){
+                    startMove(this,{width:100,height:100,marginLeft:0,marginTop:0});
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<ul id="ul1">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>

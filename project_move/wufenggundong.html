@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>运动示例---无缝滚动</title>
+    <style type="text/css">
+        body,ul,li,img,div{
+            margin:0;
+            padding:0;
+        }
+        img{
+            border:none;
+        }
+        #container{
+            position: relative;
+            border:1px solid black;
+            width:680px;
+            height:132px;
+            margin:20px auto;
+            overflow: hidden;
+        }
+        .mark_left{
+            position:absolute;
+            width:60px;
+            height:60px;
+            left:10px;
+            top:36px;
+            background:url(images/btn.gif)no-repeat 0 0;
+            z-index:1;
+            filter:alpha(opacity:60);
+            opacity: 0.6;
+        }
+        .mark_right{
+            position: absolute;
+            width:60px;
+            height:60px;
+            right:10px;
+            top:36px;
+            background:url(images/btn.gif)no-repeat 0 -60px;
+            z-index: 1;
+            filter:alpha(opacity:60);
+            opacity: 0.6;
+        }
+        .left{
+            width:340px;
+            height:132px;
+            position: absolute;
+            left:0;
+            top:0;
+            background:red;
+            filter:alpha(opacity:0);
+            opacity: 0;
+            z-index:2000;
+        }
+        .right{
+            width:340px;
+            height:132px;
+            position: absolute;
+            right:0;
+            top:0;
+            background:green;
+            filter:alpha(opacity:0);
+            opacity: 0;
+            z-index:2000;
+        }
+        #container #ul1 {
+            position: absolute;
+          left:0;
+        }
+        #container #ul1 li{
+            list-style: none;
+            width:150px;
+            height:112px;
+            float:left;
+            padding:10px;
+        }
+        #container #ul1 li img{
+            width:150px;
+            height:112px;
+        }
+    </style>
+    <script type="text/javascript">
+       window.onload=function(){
+           var oDiv=document.getElementById('container');
+           var oUl=document.getElementById('ul1');
+           var aLis=oUl.getElementsByTagName('li');
+           var iSpeed=10;
+           var oBtnLeft=document.getElementsByClassName('mark_left')[0];
+           var oBtnRight=document.getElementsByClassName('mark_right')[0];
+           var left=document.getElementsByClassName('left')[0];
+           var right=document.getElementsByClassName('right')[0];
+           var timer=null;
+           oUl.innerHTML+=oUl.innerHTML;
+
+           oUl.style.width=aLis[0].offsetWidth*aLis.length+'px';
+           function fnMove(){
+               if(oUl.offsetLeft<-oUl.offsetWidth/2){
+                   oUl.style.left=0+'px';
+               }else if(oUl.offsetLeft>0){
+                   oUl.style.left=-oUl.offsetWidth/2+'px';
+               }
+               oUl.style.left=oUl.offsetLeft+iSpeed+'px';
+           }
+           timer=setInterval(
+              fnMove
+           ,30);
+           left.onmouseover=function(){
+               clearInterval(timer);
+           };
+           right.onmouseover=function(){
+               clearInterval(timer);
+           };
+           left.onmouseout=function(){
+               timer=setInterval(fnMove,30);
+           };
+           right.onmouseout=function(){
+               timer=setInterval(fnMove,30);
+           };
+           oBtnLeft.onclick=function(){
+               iSpeed=-10;
+           };
+           oBtnRight.onclick=function(){
+              iSpeed=10;
+           };
+           oBtnLeft.onmouseover=function(){
+               clearInterval(timer);
+           };
+           oBtnRight.onmouseover=function(){
+               clearInterval(timer);
+           };
+           oBtnLeft.onmouseout=function(){
+               timer=setInterval(fnMove,30);
+           };
+           oBtnRight.onmouseout=function(){
+               timer=setInterval(fnMove,30);
+           };
+       }
+    </script>
+</head>
+<body>
+<div id="container">
+    <a class='left' href="#"></a>
+    <a class='right' href="#"></a>
+    <div class="mark_left" href="#"></div>
+    <ul id="ul1">
+        <li><img src="images/1.jpg"></li>
+        <li><img src="images/2.jpg"></li>
+        <li><img src="images/3.jpg"></li>
+        <li><img src="images/4.jpg"></li>
+    </ul>
+    <div class="mark_right" href="#"></div>
+</div>
+</body>
+</html>

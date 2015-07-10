@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>伸缩菜单--同时淡入淡出</title>
+    <style type="text/css">
+        body,ul,li,div{
+            margin:0;
+            padding:0;
+        }
+        ul,li{
+            list-style:none;
+        }
+        #ul1{
+            margin:50px auto;
+            width:306px;
+            height:250px;
+        }
+        #ul1 li{
+            width:100px;
+            height:50px;
+            line-height:50px;
+            text-align:center;
+            position:relative;
+            border:1px solid #33CCCC;
+            float:left;
+            background:#009933;
+        }
+        #ul1 li div{
+            width:100%;
+            position: absolute;
+            top:50px;
+            left:0px;
+            overflow: hidden;
+            background:#ccc;
+            height:0;
+        }
+    </style>
+    <script type="text/javascript" src="js/move2.js"></script>
+    <script type="text/javascript">
+        window.onload=function(){
+            var oUl=document.getElementById('ul1');
+            var aLi=oUl.getElementsByTagName('li');
+
+            for(var i=0;i<aLi.length;i++){
+                aLi[i].onmouseover=function(){
+                    var oDiv=this.getElementsByTagName('div')[0];
+                    oDiv.style.height='auto';
+                    var iHeight=oDiv.offsetHeight;
+                    startMove(oDiv,{height:iHeight});
+                };
+                aLi[i].onmouseout=function(){
+                    var oDiv=this.getElementsByTagName('div')[0];
+                    startMove(oDiv,{height:0});
+                };
+            }
+        }
+    </script>
+</head>
+<body>
+<ul id="ul1">
+    <li>
+            首页
+            <div>
+                电视剧<br/>
+                电影<br/>
+                综艺节目<br/>
+                动漫<br/>
+            </div>
+    </li>
+    <li>
+        购物
+        <div>
+            淘宝<br/>
+            京东<br/>
+            天猫<br/>
+            唯品会<br/>
+        </div>
+    </li>
+    <li>
+        旅游
+        <div>
+            西藏<br/>
+            云南<br/>
+            西安<br/>
+            黄山<br/>
+        </div>
+    </li>
+</ul>
+</body>
+</html>

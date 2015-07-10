@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>运动课程--缓冲运动示例</title>
+    <style type="text/css">
+        body,div,span,input{
+            margin:0;
+            padding:0;
+        }
+     #div1{
+         width:100px;
+         height:100px;
+         background:#33CCCC;
+         position:absolute;
+         left:0px;
+         top:50px;
+     }
+        span{
+            position: absolute;
+            width:1px;
+            height:500px;
+            left:300px;
+            top:10px;
+            background: blue;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload=function(){
+
+        };
+        var timer=null;
+        function startMove(iTarget){
+            clearInterval(timer);
+            var oDiv=document.getElementById('div1');
+            timer=setInterval(function(){
+                var iSpeed=(iTarget-oDiv.offsetLeft)/8;
+                //iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+               if(oDiv.offsetLeft==iTarget){
+                   clearInterval(timer);
+               }else{
+                   oDiv.style.left=oDiv.offsetLeft+iSpeed+'px';
+               }
+                document.title=oDiv.offsetLeft+"*****"+iSpeed;
+            },30)
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="开始运动" onclick="startMove(300)">
+<div id="div1"></div>
+<span></span>
+</body>
+</html>

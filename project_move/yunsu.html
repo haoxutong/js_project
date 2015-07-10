@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>运动课程-匀速运动</title>
+    <style type="text/css">
+        body,div,input{
+            margin:0;
+            padding:0;
+        }
+        #div1{
+            width:100px;
+            height:100px;
+            background:#33CCCC;
+            position: absolute;
+            left:800px;
+            top:50px;
+        }
+        span{
+            width:1px;
+            background: black;
+            height:500px;
+            position: absolute;
+            left:300px;
+            top:0px;
+        }
+    </style>
+    <script type="text/javascript">
+        var timer=null;
+        function startMove(iTarget){
+            clearInterval(timer);
+            var oDiv=document.getElementById('div1');
+            var iSpeed=0;
+            timer=setInterval(function(){
+                if(oDiv.offsetLeft<iTarget){
+                    iSpeed=7;
+                }else{
+                    iSpeed=-7;
+                }
+
+
+                if(Math.abs(oDiv.offsetLeft-iTarget)<7){
+                    clearInterval(timer);
+                    oDiv.style.left=iTarget+'px';
+                }else{
+                    oDiv.style.left=oDiv.offsetLeft+iSpeed+'px';
+                }
+
+            },30)
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="开始运动" onclick="startMove(300)">
+<div id="div1"></div>
+<span></span>
+</body>
+</html>

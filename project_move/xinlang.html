@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>新浪微博</title>
+    <style type="text/css">
+        body,ul,input,textarea{
+            margin:0;
+            padding:0;
+        }
+        #ul1{
+            width:300px;
+            height:300px;
+            border:1px solid black;
+            margin:50px auto;
+        }
+        #ul1 div{
+            list-style: none;
+            border-bottom:1px dashed #009933;
+            overflow: hidden;
+            filter:alpha(opacity:0);
+            opacity:0;
+        }
+    </style>
+    <script type="text/javascript" src="js/move2.js"></script>
+    <script type="text/javascript">
+        window.onload=function(){
+            var oUl=document.getElementById('ul1');
+            var txt=document.getElementsByTagName('textarea')[0];
+            var btn=document.getElementById('btn');
+
+            btn.onclick=function(){
+                var li=document.createElement('div');
+                li.innerHTML=txt.value;
+                txt.value='';
+                if(oUl.childNodes.length>0){
+                    oUl.insertBefore(li,oUl.childNodes[0])
+                }else{
+                    oUl.appendChild(li);
+                }
+                var iHeight=li.offsetHeight;
+                li.style.height=0;
+                startMove(li,{height:iHeight},function(){
+                    startMove(li,{opacity:100});
+                });
+
+            }
+        }
+    </script>
+</head>
+<body>
+<textarea rows="10" cols="30"></textarea>
+<input id='btn' type="button" value="发布">
+<ul id="ul1">
+</ul>
+</body>
+</html>
